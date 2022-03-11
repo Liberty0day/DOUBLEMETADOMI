@@ -9,7 +9,8 @@ NOTE: This page is under construction!
 ## The Process
 
 1. Select installation type local or remote, msf5 or msf6
-2. Execute install
+2. Execute install for local and wait
+3. For remote give user, passwd, ip of your kali and execute install
 
 
 ## Preliminaries
