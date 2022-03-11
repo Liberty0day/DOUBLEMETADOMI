@@ -2,23 +2,34 @@
 ########  GLOBAL VALUE  ############
 ######## ############## ############
 
+
 FRAMEWORK_NAME=DOUBLEMETADOMI
 FRAMEWORK_VERSION=0.0.0
 
+####################################
+######### SUDO MUSHROOM ############
+####################################
+
+SUDO_USER="kali"
+
+####################################
+######### FRAMEWORK ################
+####################################
+
 FRAMEWORK(){
 
-    printf "${GREEN}----[ ${FRAMEWORK_NAME} Version ${FRAMEWORK_VERSION}\n"
+    printf "${GREEN}----[ ${FRAMEWORK_NAME} Version ${FRAMEWORK_VERSION}"
 }
 
 ####################################
 ######### COLOR VALUE ##############
 ####################################
 
-BLUE='\033[0;34m'
-ORANGE='\033[0;33m'
-GREEN='\033[0;32m'
-RED='\033[0;31m'
-NC='\033[0m' # No Color
+BLUE='[0;34m'
+ORANGE='[0;33m'
+GREEN='[0;32m'
+RED='[0;31m'
+NC='[0m' # No Color
 
 ####################################
 ######### FOLDER VALUE #############
