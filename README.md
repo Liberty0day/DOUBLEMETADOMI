@@ -1,6 +1,6 @@
 # DOUBLEMETADOMI
 
-## Metasploit Installator
+## Metasploit Installer
 
 THANKS : https://github.com/Dewalt-arch/pimpmykali  I was inspired by this script for the installation of metasploit 5
 
