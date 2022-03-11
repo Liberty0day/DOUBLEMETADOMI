@@ -1,0 +1,133 @@
+######## ############## ############
+########  GLOBAL VALUE  ############
+######## ############## ############
+
+FRAMEWORK_NAME=DOUBLEMETADOMI
+FRAMEWORK_VERSION=0.0.0
+
+FRAMEWORK(){
+
+    printf "${GREEN}----[ ${FRAMEWORK_NAME} Version ${FRAMEWORK_VERSION}\n"
+}
+
+####################################
+######### COLOR VALUE ##############
+####################################
+
+BLUE='\033[0;34m'
+ORANGE='\033[0;33m'
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
+####################################
+######### FOLDER VALUE #############
+####################################
+
+FOLDER_MSF5=METADOMI5
+FOLDER_MSF6=METADOMI6
+
+####################################
+######### FOLDER MAKE ##############
+####################################
+
+FOLDER_MAKE(){
+
+    mkdir $1
+}
+
+####################################
+####### INSTALL MSF5  ##############
+####################################
+
+INSTALL_MSF5(){
+    
+    echo "$(echo $SUDO_USER 2>&1)" \
+                                        | sudo -S  apt remove metasploit-framework
+    FOLDER_MAKE $FOLDER_MSF5
+
+    echo "$(echo $SUDO_USER 2>&1)" \
+                                        | sudo -S apt -y --allow-change-held-packages remove metasploit-framework
+    wget                           \
+                                          https://archive.kali.org/kali/pool/main/m/metasploit-framework/metasploit-framework_5.0.101-0kali1%2Bb1_amd64.deb -O /tmp/metasploit-framework_5.deb
+    echo "$(echo $SUDO_USER 2>&1)" \
+                                        | sudo -S dpkg -i /tmp/metasploit-framework_5.deb
+    echo "$(echo $SUDO_USER 2>&1)" \
+                                        | sudo -S gem cleanup reline
+    echo "$(echo $SUDO_USER 2>&1)" \
+                                        | sudo -S msfdb init
+    echo "$(echo $SUDO_USER 2>&1)" \
+                                        | sudo -S rm -f /tmp/metasploit-framework_5.deb
+    echo "$(echo $SUDO_USER 2>&1)" \
+                                        | sudo -S apt-mark hold metasploit-framework
+    echo "[+] Install msf5 cmd"
+    echo 'alias msf5="msfconsole $1 $2 $3 $4"' >> /home/kali/.zshrc
+    source /home/kali/.zshrc >/dev/null
+}
+
+####################################
+####### INSTALL MSF6  ##############
+####################################
+
+INSTALL_MSF6(){
+
+    echo "$(echo $SUDO_USER 2>&1)" \
+                                        | sudo -S  apt remove metasploit-framework
+
+    wget                           \
+                                          https://github.com/rapid7/metasploit-framework/archive/refs/heads/master.zip
+    
+    unzip                          \
+                                          master.zip
+    mv metasploit-framework-master \
+                                          $FOLDER_MSF6  
+    rm                             \
+                                          master.zip                                     
+    echo "$(echo $SUDO_USER 2>&1)" \
+                                        | sudo -S apt -y  update 
+    echo "$(echo $SUDO_USER 2>&1)" \
+                                        | sudo -S DEBIAN_FRONTEND=noninteractive apt install -y  libpq-dev 
+    echo "$(echo $SUDO_USER 2>&1)" \
+                                        | sudo -S DEBIAN_FRONTEND=noninteractive apt install -y  ruby-dev 
+    echo "$(echo $SUDO_USER 2>&1)" \
+                                        | sudo -S DEBIAN_FRONTEND=noninteractive apt install -y  libpcap-dev 
+    echo "$(echo $SUDO_USER 2>&1)" \
+                                        | sudo -S DEBIAN_FRONTEND=noninteractive apt install -y  sqlite3 libsqlite3-dev
+    echo "$(echo $SUDO_USER 2>&1)" \
+                                        | sudo -S DEBIAN_FRONTEND=noninteractive apt install -y  postgresql postgresql-client
+    echo "$(echo $SUDO_USER 2>&1)" \
+                                        | sudo -S service postgresql start 
+    echo "$(echo $SUDO_USER 2>&1)" \
+                                        | sudo -S update-rc.d postgresql enable
+    cd                             \
+                                          ~/METADOMI6
+    echo "$(echo $SUDO_USER 2>&1)" \
+                                        | sudo -S gem cleanup reline
+    echo "$(echo $SUDO_USER 2>&1)" \
+                                        | sudo -S gem install bundler
+    echo "$(echo $SUDO_USER 2>&1)" \
+                                        | sudo -S bundle install
+
+    echo "$(echo $SUDO_USER 2>&1)" \
+                                        | sudo -S msfdb init
+    echo "[+] Install msf6 cmd"
+    echo 'alias msf6="/home/kali/METADOMI6/msfconsole $1 $2 $3 $4"' >> /home/kali/.zshrc
+    source /home/kali/.zshrc >>/dev/null
+}
+
+MENU_INSTALL(){
+
+case "0" in
+    "1") 
+    clear
+    INSTALL_MSF5;;
+
+    "2") 
+    clear
+    INSTALL_MSF6;;
+esac   
+shift
+
+}
+
+MENU_INSTALL
