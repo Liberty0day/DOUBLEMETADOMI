@@ -21,6 +21,11 @@ You need install this tools :
 - wget
 
 ## Start
+Enable ssh in your kali
+```
+service ssh restart
+```
+Now execute the script
 ```
 zsh ./dmd.sh
 ```
