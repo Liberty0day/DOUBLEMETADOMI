@@ -42,6 +42,8 @@ FOLDER_MAKE(){
 
 INSTALL_MSF5(){
     
+    # https://github.com/Dewalt-arch/pimpmykali 
+    # I was inspired by this script for the installation of metasploit 5
     echo "$(echo $SUDO_USER 2>&1)" \
                                         | sudo -S  apt remove metasploit-framework
     FOLDER_MAKE $FOLDER_MSF5
