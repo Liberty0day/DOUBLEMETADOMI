@@ -47,7 +47,14 @@ zsh ./dmd.sh
 [ ? ] Give me your choice ]-------
 
 ```
+### DOUBLEMETADOMI REMOTE MENU
+```
+----[ DOUBLEMETADOMI Version 0.0.0
 
+[ ! ] Give your kali password
+
+kali
+```
 ### DOUBLEMETADOMI REMOTE MENU
 
 ```
