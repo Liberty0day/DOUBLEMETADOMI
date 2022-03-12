@@ -25,11 +25,11 @@ FRAMEWORK(){
 ######### COLOR VALUE ##############
 ####################################
 
-BLUE='\033[0;34m'
-ORANGE='\033[0;33m'
-GREEN='\033[0;32m'
-RED='\033[0;31m'
-NC='\033[0m' # No Color
+BLUE='[0;34m'
+ORANGE='[0;33m'
+GREEN='[0;32m'
+RED='[0;31m'
+NC='[0m' # No Color
 
 ####################################
 ######### FOLDER VALUE #############
@@ -55,12 +55,11 @@ INSTALL_MSF5(){
     
     # https://github.com/Dewalt-arch/pimpmykali 
     # I was inspired by this script for the installation of metasploit 5
-    echo "$(echo $SUDO_USER 2>&1)" \
-                                        | sudo -S  apt remove metasploit-framework
+
     FOLDER_MAKE $FOLDER_MSF5
 
     echo "$(echo $SUDO_USER 2>&1)" \
-                                        | sudo -S apt -y --allow-change-held-packages remove metasploit-framework
+                                        | sudo -S apt -y remove metasploit-framework
     wget                           \
                                           https://archive.kali.org/kali/pool/main/m/metasploit-framework/metasploit-framework_5.0.101-0kali1%2Bb1_amd64.deb -O /tmp/metasploit-framework_5.deb
     echo "$(echo $SUDO_USER 2>&1)" \
@@ -85,7 +84,7 @@ INSTALL_MSF5(){
 INSTALL_MSF6(){
 
     echo "$(echo $SUDO_USER 2>&1)" \
-                                        | sudo -S  apt remove metasploit-framework
+                                        | sudo -S  apt  -y remove metasploit-framework
 
     wget                           \
                                           https://github.com/rapid7/metasploit-framework/archive/refs/heads/master.zip
