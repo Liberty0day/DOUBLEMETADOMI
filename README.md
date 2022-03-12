@@ -6,8 +6,11 @@ THANKS : https://github.com/Dewalt-arch/pimpmykali  I was inspired by this scrip
 
 NOTE: This script work with the version kali-rolling
 
-SHOW:echo $(lsb_release -idrc | sed 's/:/:::/g') ;; Distributor ID::: Kali Description::: Kali GNU/Linux Rolling Release::: 2021.4 Codename::: kali-rolling
-
+SHOW:
+## Distributor ID::: Kali Description::: Kali GNU/Linux Rolling Release::: 2021.4 Codename::: kali-rolling
+```
+echo $(lsb_release -idrc | sed 's/:/:::/g')
+```
 NOTE: This page is under construction!
 
 ## The Process
