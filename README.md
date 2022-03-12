@@ -76,4 +76,4 @@ kali
 
 ## VIDEO
   
-[![IMAGE ALT TEXT HERE](https://i9.ytimg.com/vi_webp/S-DyYp6xcws/mqdefault.webp?v=6211ad85&sqp=CPDzr5EG&rs=AOn4CLBSi6KCIiYzHOEHZwUDDMk-_PeJ5Q)](https://www.youtube.com/watch?v=P_Ws-LLcreM)
+[![IMAGE ALT TEXT HERE](https://i9.ytimg.com/vi/P_Ws-LLcreM/mqdefault.jpg?v=622bf9ec&sqp=CMDLsZEG&rs=AOn4CLCbgSIrkXFBBkOJRMsfPa7xKYYb5A)](https://www.youtube.com/watch?v=P_Ws-LLcreM)
